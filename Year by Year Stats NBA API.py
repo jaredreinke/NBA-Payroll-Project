@@ -1,6 +1,4 @@
 from nba_api.stats.endpoints import teamyearbyyearstats
-from nba_api.stats.endpoints import leaguestandingsv3
-from nba_api.stats.library.parameters import SeasonAll
 from nba_api.stats.static import teams
 import pandas as pd
 import psycopg2
