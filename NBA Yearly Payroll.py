@@ -1,7 +1,5 @@
 # Import neccesary modules
 import requests
-import os
-import shutil
 from bs4 import BeautifulSoup
 import pandas as pd
 from sqlalchemy import create_engine
@@ -16,9 +14,6 @@ for year in years:
     season = start_year + "-" + end_year
     seasons.append(season)
 
-
-print(seasons)
-
 # Get html text for team salary and save to salaries folder for faster loading
 
 base_url = "https://hoopshype.com/salaries/{}"
@@ -31,8 +26,6 @@ for season in seasons:
 
 # Read the HTML files and create a dataframe
 dfs = []
-dfs
-
 for season in seasons:
     with open("Salaries/{}".format(season)) as S:
         page = S.read()
@@ -49,11 +42,6 @@ for season in seasons:
     dfs.append(salaries)
 
 salaries = pd.concat(dfs)
-salaries.tail()
-
-# Extract to CSV to double check data
-
-salaries.to_csv("salaries.csv")
 
 # Load to Postgres Database
 
